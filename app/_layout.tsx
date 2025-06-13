@@ -1,44 +1,15 @@
-import { Stack } from 'expo-router';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider } from '../components/contexts/ThemeContext';
-import { AuthProvider } from '../components/contexts/AuthContext';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { CustomDrawer } from '@/components/CustomDrawer';
 
-const queryClient = new QueryClient();
+const Drawer = createDrawerNavigator();
 
-export default function RootLayout() {
+export default function Layout() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <AuthProvider>
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen
-        name="new-task"
-        options={{
-          presentation: 'modal',
-          title: 'Nova Tarefa',
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: '#fff',
-          },
-          headerTintColor: '#007AFF',
-        }}
-      />
-      <Stack.Screen
-        name="task/[id]"
-        options={{
-          title: 'Detalhes da Tarefa',
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: '#fff',
-          },
-          headerTintColor: '#007AFF',
-        }}
-      />
-    </Stack>
-        </AuthProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawer {...props} />}
+      screenOptions={{ headerShown: false }}
+    >
+      <Drawer.Screen name="(tabs)" component={() => null} />
+    </Drawer.Navigator>
   );
 }

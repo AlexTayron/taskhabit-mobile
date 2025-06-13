@@ -1,3 +1,9 @@
-import Settings from '../../components/pages/Settings';
+import { View, Text } from 'react-native';
 
-export default Settings; 
+export default function Settings() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Tela de Settings</Text>
+    </View>
+  );
+}

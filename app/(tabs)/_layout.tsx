@@ -1,72 +1,45 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
-import ProfileScreen from '../../components/pages/Profile';
-import NotesScreen from '../../components/pages/Notes';
-import LinksScreen from '../../components/pages/Links';
-import ShoppingListsScreen from '../../components/pages/ShoppingLists';
-import StudyPlanScreen from '../../components/pages/StudyPlan';
-import SettingsScreen from '../../components/pages/Settings';
+import React from 'react';
+import { Platform } from 'react-native';
 
-const Drawer = createDrawerNavigator();
+import { HapticTab } from '@/components/HapticTab';
+import { IconSymbol } from '@/components/ui/IconSymbol';
+import TabBarBackground from '@/components/ui/TabBarBackground';
+import { Colors } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme';
 
-function TabsLayout() {
+export default function TabLayout() {
+  const colorScheme = useColorScheme();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#007AFF',
-      }}
-    >
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        headerShown: false,
+        tabBarButton: HapticTab,
+        tabBarBackground: TabBarBackground,
+        tabBarStyle: Platform.select({
+          ios: {
+            // Use a transparent background on iOS to show the blur effect
+            position: 'absolute',
+          },
+          default: {},
+        }),
+      }}>
       <Tabs.Screen
-        name="Dashboard"
+        name="index"
         options={{
-          title: 'Dashboard',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="grid-outline" size={size} color={color} />
-          ),
+          title: 'Home',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="tasks"
+        name="explore"
         options={{
-          title: 'Tarefas',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="checkbox-outline" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="habits"
-        options={{
-          title: 'Hábitos',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="repeat-outline" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="todos"
-        options={{
-          title: 'TODOs',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="list-outline" size={size} color={color} />
-          ),
+          title: 'Explore',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
     </Tabs>
-  );
-}
-
-export default function DrawerLayout() {
-  return (
-    <Drawer.Navigator initialRouteName="Tabs">
-      <Drawer.Screen name="Tabs" component={TabsLayout} options={{ headerShown: false, title: 'Principal' }} />
-      <Drawer.Screen name="Profile" component={ProfileScreen} options={{ title: 'Perfil' }} />
-      <Drawer.Screen name="Notes" component={NotesScreen} options={{ title: 'Notas' }} />
-      <Drawer.Screen name="Links" component={LinksScreen} options={{ title: 'Links' }} />
-      <Drawer.Screen name="ShoppingLists" component={ShoppingListsScreen} options={{ title: 'Lista de Compras' }} />
-      <Drawer.Screen name="StudyPlan" component={StudyPlanScreen} options={{ title: 'Plano de Estudos' }} />
-      <Drawer.Screen name="Settings" component={SettingsScreen} options={{ title: 'Configurações' }} />
-    </Drawer.Navigator>
   );
 }

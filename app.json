@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "taskhabit-mobile",
-    "slug": "taskhabit-mobile",
+    "name": "taskhabit",
+    "slug": "taskhabit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "taskhabitmobile",
+    "scheme": "taskhabit",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
