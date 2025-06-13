@@ -9,7 +9,7 @@ export default function CustomDrawer(props: any) {
     <DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1 }}>
       <View style={styles.profileContainer}>
         <Image source={{ uri: 'https://i.pravatar.cc/100' }} style={styles.avatar} />
-        <Text style={styles.name}>Alex Tayron</Text>
+        <Text style={styles.name}>Alex Tayron 2</Text>
         <Text style={styles.email}>alextayron@gmail.com</Text>
       </View>
 
