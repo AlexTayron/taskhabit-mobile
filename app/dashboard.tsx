@@ -1,7 +1,7 @@
 // app/dashboard.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from 'expo-router'; // Importe useNavigation
+import { DrawerActions, useNavigation } from '@react-navigation/native'; // Importe useNavigation
 import { Ionicons } from '@expo/vector-icons'; // Importe Ionicons para o ícone do menu
 
 export default function DashboardScreen() {
@@ -9,14 +9,6 @@ export default function DashboardScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Botão de menu no cabeçalho */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <Ionicons name="menu" size={30} color="black" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Dashboard</Text>
-      </View>
-
       <View style={styles.content}>
         <Text style={styles.text}>Tela de Dashboard</Text>
       </View>

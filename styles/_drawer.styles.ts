@@ -16,10 +16,12 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
+    fontFamily: 'SpaceMono',
   },
   email: {
     color: '#aaa',
     fontSize: 14,
+    fontFamily: 'SpaceMono',
   },
   menu: {
     marginTop: 10,

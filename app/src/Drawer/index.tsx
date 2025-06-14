@@ -2,7 +2,7 @@ import React from 'react';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { View, Text, Image } from 'react-native';
 import { Ionicons, Feather, MaterialIcons } from '@expo/vector-icons';
-import { styles } from './styles';
+import { styles } from '../../../styles/_drawer.styles';
 
 export default function CustomDrawer(props: any) {
   return (
@@ -15,7 +15,7 @@ export default function CustomDrawer(props: any) {
 
       <View style={styles.menu}>
         <DrawerItem label="Dashboard" icon={() => <Ionicons name="grid-outline" size={20} />} onPress={() => props.navigation.navigate('Dashboard')} />
-        <DrawerItem label="Tarefas" icon={() => <Ionicons name="checkmark-done-outline" size={20} />} onPress={() => props.navigation.navigate('Tarefas')} />
+        <DrawerItem label="Appointment" icon={() => <Ionicons name="checkmark-done-outline" size={20} />} onPress={() => props.navigation.navigate('Appointment')} />
         <DrawerItem label="Hábitos" icon={() => <Ionicons name="repeat-outline" size={20} />} onPress={() => props.navigation.navigate('Habitos')} />
         <DrawerItem label="Notas" icon={() => <Feather name="file-text" size={20} />} onPress={() => props.navigation.navigate('Notas')} />
         <DrawerItem label="TO-DOs" icon={() => <Ionicons name="list-outline" size={20} />} onPress={() => props.navigation.navigate('Todos')} />

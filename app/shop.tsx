@@ -9,14 +9,6 @@ export default function ShopScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Botão de menu no cabeçalho */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <Ionicons name="menu" size={30} color="black" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Shop</Text>
-      </View>
-
       <View style={styles.content}>
         <Text style={styles.text}>Tela de Shop</Text>
       </View>
